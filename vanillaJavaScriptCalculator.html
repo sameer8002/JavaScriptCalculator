@@ -11,7 +11,7 @@
 				margin-left:50px;
 				margin-top: 80px;
 				background-color: grey;
-				
+				border-radius:5px;
 				}
 			#display{
 				position: absolute;
@@ -213,7 +213,10 @@
 				cursor: pointer;
 			}
 			.bttnpara{
-				font-family: 
+				font-family: Arial;
+				font-size: 20px;
+				padding-left: 35px; 
+			}
 		</style>
 		<script>
 			var num1=0, num2=0, flag=1, ans=0;
@@ -245,9 +248,9 @@
 						}
 			}
 			function divide(){
-					operator="/";
-					flag=2;
-					document.getElementById("dsplypara").innerHTML=operator;
+					operator="/";	
+						flag=2;
+						document.getElementById("dsplypara").innerHTML=operator;
 			}
 			function multiply(){
 					operator="*";
@@ -386,6 +389,8 @@
 						ans=num1+num2
 				}
 				document.getElementById("dsplypara").innerHTML=ans;
+				num1=ans;
+				flag=1;
 			}
 		</script>
 	</head>
@@ -393,25 +398,25 @@
 		<h1>Vanilla  JavaScript Calculator</h1>
 		<div id="back">
 		<div id="display"><p id="dsplypara"></p></div>
-		<div id="allclear" class="calbtn" onclick="allclear()"><p>AC</p></div>
-		<div id="signchange" class="calbtn" onclick="signchange()"><p>+/-</p></div>
-		<div id="backspace"  class="calbtn" onclick="backspace()"><p><-</p></div>
-		<div id="divide" class="calbtn" onclick="divide()"><p>/</p></div>
-		<div id="seven"  class="calbtn" onclick="seven()"><p>7</p></div>
-		<div id="eight" class="calbtn" onclick="eight()"><p>8</p></div>
-		<div id="nine" class="calbtn" onclick="nine()"><p>9</p></div>
-		<div id="multiply" class="calbtn" onclick="multiply()"><p>*</p></div>
-		<div id="four" class="calbtn" onclick="four()"><p>4</p></div>
-		<div id="five" class="calbtn" onclick="five()"><p>5</p></div>
-		<div id="six"><p class="calbtn" onclick="six()">6</p></div>
-		<div id="subtract" class="calbtn" onclick="subtract()"><p>-</p></div>
-		<div id="one" class="calbtn" onclick="one()"><p>1</p></div>
-		<div id="two" class="calbtn" onclick="two()"><p>2</p></div>
-		<div id="three" class="calbtn" onclick="three()"><p>3</p></div>
-		<div id="plus" class="calbtn" onclick="plus()"><p>+</p></div>
-		<div id="zero" class="calbtn" onclick="zero()"><p>0</p></div>
-		<div id="decimalpt" class="calbtn" onclick="decimalpt()"><p>.</p></div>
-		<div id="equalto" class="calbtn" onclick="equalto()"><p>=</p></div>
+		<div id="allclear" class="calbtn" onclick="allclear()"><p class="bttnpara">AC</p></div>
+		<div id="signchange" class="calbtn" onclick="signchange()"><p class="bttnpara">+/-</p></div>
+		<div id="backspace"  class="calbtn" onclick="backspace()"><p class="bttnpara"><-</p></div>
+		<div id="divide" class="calbtn" onclick="divide()"><p class="bttnpara">/</p></div>
+		<div id="seven"  class="calbtn" onclick="seven()"><p class="bttnpara">7</p></div>
+		<div id="eight" class="calbtn" onclick="eight()"><p class="bttnpara">8</p></div>
+		<div id="nine" class="calbtn" onclick="nine()"><p class="bttnpara">9</p></div>
+		<div id="multiply" class="calbtn" onclick="multiply()"><p class="bttnpara">*</p></div>
+		<div id="four" class="calbtn" onclick="four()"><p class="bttnpara">4</p></div>
+		<div id="five" class="calbtn" onclick="five()"><p class="bttnpara">5</p></div>
+		<div id="six" class="calbtn" onclick="six()"><p class="bttnpara">6</p></div>
+		<div id="subtract" class="calbtn" onclick="subtract()"><p class="bttnpara">-</p></div>
+		<div id="one" class="calbtn" onclick="one()"><p class="bttnpara">1</p></div>
+		<div id="two" class="calbtn" onclick="two()"><p class="bttnpara">2</p></div>
+		<div id="three" class="calbtn" onclick="three()"><p class="bttnpara">3</p></div>
+		<div id="plus" class="calbtn" onclick="plus()"><p class="bttnpara">+</p></div>
+		<div id="zero" class="calbtn" onclick="zero()"><p class="bttnpara">0</p></div>
+		<div id="decimalpt" class="calbtn" onclick="decimalpt()"><p class="bttnpara">.</p></div>
+		<div id="equalto" class="calbtn" onclick="equalto()"><p class="bttnpara">=</p></div>
 		</div>
 		</body>
 </html>
