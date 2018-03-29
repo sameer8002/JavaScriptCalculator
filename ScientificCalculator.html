@@ -3,10 +3,10 @@
 		<title>Scientific Calculator</title>
 		<style>
 			body{
-				bckground-color:yellow;
+				background-color:yellow;
 				}
 			#back{
-				height:400px;
+				height:470px;
 				width: 360px;
 				margin-left:50px;
 				margin-top: 80px;
@@ -185,8 +185,18 @@
 			#zero{
 				position: absolute;
 				height: 60px;
-				width: 170px;
+				width: 85px;
 				margin-left: 10px;
+				margin-top: 330px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#power{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 95px;
 				margin-top: 330px;
 				background-color: blue;
 				border: 1px solid black;
@@ -212,11 +222,54 @@
 				border: 1px solid black;
 				cursor: pointer;
 			}
+			
+			#x{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 10px;
+				margin-top: 390px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#y{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 95px;
+				margin-top: 390px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#z{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 180px;
+				margin-top: 390px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#equals{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 265px;
+				margin-top: 390px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+				text-align: center;
+			}
 			.bttnpara{
 				font-family: Arial;
 				font-size: 20px;
 				padding-left: 35px; 
 			}
+			
 		</style>
 		<script>
 			var num1=0, num2=0, flag=1, ans=0;
@@ -267,7 +320,7 @@
 					flag=2;
 					document.getElementById("dsplypara").innerHTML=operator;
 			}
-			/*function decimalpt(){
+			function decimalpt(){
 					if(flag==1){
 						num1=num1*1.0;
 						document.getElementById("dsplypara").innerHTML=num1;
@@ -276,7 +329,7 @@
 						num2=num2*1.0;
 						document.getElementById("dsplypara").innerHTML=num2;
 					}
-			}*/
+			}
 			function one(){
 				if(flag==1){
 					num1=num1*10+1;
@@ -377,6 +430,21 @@
 					document.getElementById("dsplypara").innerHTML=num2;
 				}
 			}
+			function x(){
+				if(flag==1){
+					num1=num1*10;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function power(){
+					operator="^";
+					flag=2;
+					document.getElementById("dsplypara").innerHTML=operator;
+			}
 			function equalto(){
 				if(flag==2){
 					if(operator=="/")
@@ -386,7 +454,12 @@
 					else if(operator=="-")
 						ans=num1-num2;
 					else if(operator=="+")
-						ans=num1+num2
+						ans=num1+num2;
+					else if(operator=="^"){
+						ans=1;
+					for(var i=1; i<=num2; i++) 
+						ans*=num1;
+					}
 				}
 				document.getElementById("dsplypara").innerHTML=ans;
 				num1=ans;
@@ -395,7 +468,7 @@
 		</script>
 	</head>
 	<body>
-		<h1>Vanilla  JavaScript Calculator</h1>
+		<h1>Scientific Calculator</h1>
 		<div id="back">
 		<div id="display"><p id="dsplypara"></p></div>
 		<div id="allclear" class="calbtn" onclick="allclear()"><p class="bttnpara">AC</p></div>
@@ -415,8 +488,512 @@
 		<div id="three" class="calbtn" onclick="three()"><p class="bttnpara">3</p></div>
 		<div id="plus" class="calbtn" onclick="plus()"><p class="bttnpara">+</p></div>
 		<div id="zero" class="calbtn" onclick="zero()"><p class="bttnpara">0</p></div>
+		<div id="power" class="calbtn" onclick="power()"><p class="bttnpara">pow</p></div>
 		<div id="decimalpt" class="calbtn" onclick="decimalpt()"><p class="bttnpara">.</p></div>
 		<div id="equalto" class="calbtn" onclick="equalto()"><p class="bttnpara">=</p></div>
+		<div id="x" class="calbtn" onclick="x()"><p class="bttnpara">x</p></div>
+		<div id="y" class="calbtn" onclick="y()"><p class="bttnpara">y</p></div>
+		<div id="z" class="calbtn" onclick="z()"><p class="bttnpara">z</p></div>
+		<div id="equals" class="calbtn" onclick="equals()"><p class="bttnpara">equals</p></div>	
+		</div>
+		</body>
+</html><html>
+	<head>
+		<title>Scientific Calculator</title>
+		<style>
+			body{
+				background-color:yellow;
+				}
+			#back{
+				height:470px;
+				width: 360px;
+				margin-left:50px;
+				margin-top: 80px;
+				background-color: grey;
+				border-radius:5px;
+				}
+			#display{
+				position: absolute;
+				height: 70px;
+				width: 340px;
+				margin-left: 10px;
+				margin-top: 10px;
+				background-color: green;
+			
+			}
+			#allclear{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 10px;
+				margin-top: 90px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#signchange{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 95px;
+				margin-top: 90px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#backspace{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 180px;
+				margin-top: 90px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#divide{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 265px;
+				margin-top: 90px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#seven{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 10px;
+				margin-top: 150px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#eight{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 95px;
+				margin-top: 150px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#nine{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 180px;
+				margin-top: 150px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#multiply{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 265px;
+				margin-top: 150px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#four{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 10px;
+				margin-top: 210px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#five{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 95px;
+				margin-top: 210px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#six{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 180px;
+				margin-top: 210px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#subtract{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 265px;
+				margin-top: 210px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#one{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 10px;
+				margin-top: 270px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#two{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 95px;
+				margin-top: 270px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#three{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 180px;
+				margin-top: 270px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#plus{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 265px;
+				margin-top: 270px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#zero{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 10px;
+				margin-top: 330px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#power{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 95px;
+				margin-top: 330px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#decimalpt{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 180px;
+				margin-top: 330px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#equalto{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 265px;
+				margin-top: 330px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			
+			#x{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 10px;
+				margin-top: 390px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#y{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 95px;
+				margin-top: 390px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#z{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 180px;
+				margin-top: 390px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+			}
+			#equals{
+				position: absolute;
+				height: 60px;
+				width: 85px;
+				margin-left: 265px;
+				margin-top: 390px;
+				background-color: blue;
+				border: 1px solid black;
+				cursor: pointer;
+				text-align: center;
+			}
+			.bttnpara{
+				font-family: Arial;
+				font-size: 20px;
+				padding-left: 35px; 
+			}
+			
+		</style>
+		<script>
+			var num1=0, num2=0, flag=1, ans=0;
+			
+			function allclear(){
+				num1=0;
+				num2=0;
+				flag=1;
+				document.getElementById("dsplypara").innerHTML=num1;
+			}
+			function backspace(){
+				if(flag==1){
+					num1=0;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=0;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function signchange(){
+					if(flag==1){
+						num1=num1*(-1);
+						document.getElementById("dsplypara").innerHTML=num1;
+						}
+					else if(flag==2){
+						num2=num2*(-1);
+						document.getElementById("dsplypara").innerHTML=num2;
+						}
+			}
+			function divide(){
+					operator="/";	
+						flag=2;
+						document.getElementById("dsplypara").innerHTML=operator;
+			}
+			function multiply(){
+					operator="*";
+					flag=2;
+					document.getElementById("dsplypara").innerHTML=operator;
+			}
+			function subtract(){
+					operator="-";
+					flag=2;
+					document.getElementById("dsplypara").innerHTML=operator;
+			}
+			function plus(){
+					operator="+";
+					flag=2;
+					document.getElementById("dsplypara").innerHTML=operator;
+			}
+			function decimalpt(){
+					if(flag==1){
+						num1=num1*1.0;
+						document.getElementById("dsplypara").innerHTML=num1;
+					}
+					else if(flag==2){
+						num2=num2*1.0;
+						document.getElementById("dsplypara").innerHTML=num2;
+					}
+			}
+			function one(){
+				if(flag==1){
+					num1=num1*10+1;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10+1;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function two(){
+				if(flag==1){
+					num1=num1*10+2;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10+2;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function three(){
+				if(flag==1){
+					num1=num1*10+3;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10+3;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function four(){
+				if(flag==1){
+					num1=num1*10+4;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10+4;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function five(){
+				if(flag==1){
+					num1=num1*10+5;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10+5;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function six(){
+				if(flag==1){
+					num1=num1*10+6;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10+6;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function seven(){
+				if(flag==1){
+					num1=num1*10+7;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10+7;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function eight(){
+				if(flag==1){
+					num1=num1*10+8;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10+8;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function nine(){
+				if(flag==1){
+					num1=num1*10+9;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10+9;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function zero(){
+				if(flag==1){
+					num1=num1*10;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function x(){
+				if(flag==1){
+					num1=num1*10;
+					document.getElementById("dsplypara").innerHTML=num1;
+				}
+				else if(flag==2){
+					num2=num2*10;
+					document.getElementById("dsplypara").innerHTML=num2;
+				}
+			}
+			function power(){
+					operator="^";
+					flag=2;
+					document.getElementById("dsplypara").innerHTML=operator;
+			}
+			function equalto(){
+				if(flag==2){
+					if(operator=="/")
+						ans=num1/num2;
+					else if(operator=="*")
+						ans=num1*num2;
+					else if(operator=="-")
+						ans=num1-num2;
+					else if(operator=="+")
+						ans=num1+num2;
+					else if(operator=="^"){
+						ans=1;
+					for(var i=1; i<=num2; i++) 
+						ans*=num1;
+					}
+				}
+				document.getElementById("dsplypara").innerHTML=ans;
+				num1=ans;
+				flag=1;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Scientific Calculator</h1>
+		<div id="back">
+		<div id="display"><p id="dsplypara"></p></div>
+		<div id="allclear" class="calbtn" onclick="allclear()"><p class="bttnpara">AC</p></div>
+		<div id="signchange" class="calbtn" onclick="signchange()"><p class="bttnpara">+/-</p></div>
+		<div id="backspace"  class="calbtn" onclick="backspace()"><p class="bttnpara"><-</p></div>
+		<div id="divide" class="calbtn" onclick="divide()"><p class="bttnpara">/</p></div>
+		<div id="seven"  class="calbtn" onclick="seven()"><p class="bttnpara">7</p></div>
+		<div id="eight" class="calbtn" onclick="eight()"><p class="bttnpara">8</p></div>
+		<div id="nine" class="calbtn" onclick="nine()"><p class="bttnpara">9</p></div>
+		<div id="multiply" class="calbtn" onclick="multiply()"><p class="bttnpara">*</p></div>
+		<div id="four" class="calbtn" onclick="four()"><p class="bttnpara">4</p></div>
+		<div id="five" class="calbtn" onclick="five()"><p class="bttnpara">5</p></div>
+		<div id="six" class="calbtn" onclick="six()"><p class="bttnpara">6</p></div>
+		<div id="subtract" class="calbtn" onclick="subtract()"><p class="bttnpara">-</p></div>
+		<div id="one" class="calbtn" onclick="one()"><p class="bttnpara">1</p></div>
+		<div id="two" class="calbtn" onclick="two()"><p class="bttnpara">2</p></div>
+		<div id="three" class="calbtn" onclick="three()"><p class="bttnpara">3</p></div>
+		<div id="plus" class="calbtn" onclick="plus()"><p class="bttnpara">+</p></div>
+		<div id="zero" class="calbtn" onclick="zero()"><p class="bttnpara">0</p></div>
+		<div id="power" class="calbtn" onclick="power()"><p class="bttnpara">pow</p></div>
+		<div id="decimalpt" class="calbtn" onclick="decimalpt()"><p class="bttnpara">.</p></div>
+		<div id="equalto" class="calbtn" onclick="equalto()"><p class="bttnpara">=</p></div>
+		<div id="x" class="calbtn" onclick="x()"><p class="bttnpara">x</p></div>
+		<div id="y" class="calbtn" onclick="y()"><p class="bttnpara">y</p></div>
+		<div id="z" class="calbtn" onclick="z()"><p class="bttnpara">z</p></div>
+		<div id="equals" class="calbtn" onclick="equals()"><p class="bttnpara">equals</p></div>	
 		</div>
 		</body>
 </html>
